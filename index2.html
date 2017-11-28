@@ -10,13 +10,32 @@
 
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 
+    <style type="text/css">
+    	.like {
+    		background: #369;
+    	}
+    </style>
+
 </head>
 
 <body>
 	<h3>VUE examples  北邮2017</h3>
 	<hr>
 
-	<div id = "app7"></div>
+	<div id = "app9">
+		<alert></alert>
+		<alert></alert>
+	</div>
+	<hr>
+
+	<div id = "app10">
+		<like></like>
+		<like></like>
+	</div>
+
+	<template id = "likeComponentTPL">
+		<button  :class = "{like: liked}" @click = "toggleLike()"> Zan! {{likeCount}}</button>
+	</template>
 
     <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
     <script type="text/javascript" src="index2.js"></script>
