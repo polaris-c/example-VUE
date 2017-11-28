@@ -1,3 +1,5 @@
+'use strict';
+
 var app1 = new Vue({
 	el: '#app1',
 	data: {
@@ -85,7 +87,41 @@ var app6 = new Vue({
 		from: '02',
 		dest: []
 	},
-	methods: {
+	methods: { }
+});
 
+var app7 = new Vue({
+	el: '#app7',
+	data: {
+		role: 'superAdmin'
+	},
+	methods: { }
+});
+
+var app8 = new Vue({
+	el: '#app8',
+	data: {
+		math: 88,
+		physics: 80,
+		english: 95,
+	},
+	methods: { 
+		check: function(){
+		    var re = /^\d+$/;   //判断字符串是否为正整数 
+　　        if (!re.test(this.math) || !re.test(this.physics) || !re.test(this.english)) { 
+　　　　         console.log("请输入数字"); 
+　　        }
+            else {
+            	return true;
+            }
+		}
+	},
+	computed: {
+		sum: function() {
+			return parseFloat(this.math) + parseFloat(this.physics) + parseFloat(this.english);
+		},
+		ave: function(){
+			return Math.round(this.sum/3);
+		}
 	}
 });

@@ -148,6 +148,63 @@
 		<br>
 	</div>
 
+	<hr>
+
+	<div id = "app7">
+		<h3>app7 v-if</h3>
+
+		<div v-if = "role == 'admin' || role == 'superAdmin'">
+			Welcome admin~
+		</div>
+		<div v-else-if = "role == 'hr'">
+			Welcome hr~
+		</div>
+		<div v-else>
+			Permission Denied
+		</div>
+	</div>
+
+	<hr>
+
+	<div id = "app8">
+		<h3>app8 computed</h3>
+
+		<table border = "1">
+			<thead>
+				<th>Subject</th>
+				<th>Score</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Math</td>
+					<td><input type="text" v-model.number = "math">{{ typeof(math) }}</td>
+				</tr>
+				<tr>
+					<td>Physics</td>
+					<td><input type="text" v-model.number = "physics"></td>
+				</tr>
+				<tr>
+					<td>English</td>
+					<td><input type="text" v-model.number = "english"></td>
+				</tr>
+				<tr>
+					<td>SUM</td>
+					<td>{{ sum }}</td>
+				</tr>
+				<tr>
+					<td>AVE</td>
+					<td>
+						<div v-if = "check()">{{ ave }}</div>
+						<div v-else>
+							Error!
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<hr>
+
 <script type="text/javascript" src="../node_modules/vue/dist/vue.js">
 </script>
 <script type="text/javascript" src="index.js"></script>
