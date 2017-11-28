@@ -32,9 +32,16 @@
 		<like></like>
 		<like></like>
 	</div>
+	<hr>
+
+	<div id = "app11">
+		<alert msg = "app11"></alert>	
+		<user username = " - ZSY - "></user>
+
+	</div>
 
 	<template id = "likeComponentTPL">
-		<button  :class = "{like: liked}" @click = "toggleLike()"> Zan! {{likeCount}}</button>
+		<button :class = "{like: liked}" @click = "toggleLike()"> Zan! {{likeCount}}</button>
 	</template>
 
     <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
