@@ -9,6 +9,7 @@
     <title>VUE</title>
 
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    
     <style type="text/css" >
     	.active{
     		background: #999; 
@@ -64,9 +65,10 @@
 	<div id = "app4">
 		<h3>app4  v-on绑定事件</h3>
 		<br>
-		<button v-on = "{mouseenter: onEnter, mouseleave: onLeave}" v-on:click = "onclick()">Click me ~</button>
+		<!-- v-on = "{mouseenter: onEnter, mouseleave: onLeave}" -->
+		<button v-on:mouseenter = "onEnter()"  @mouseleave = "onLeave()" v-on:click = "onclick()">Click me ~</button>
 
-		<form @keyup.delete = "onKeyup" @submit = "onSubmit($event)">
+		<form @keyup = "onKeyup()" @submit = "onSubmit($event)">
 			<input type = "text">
 			<button :class = "btnClass" type = "submit" value = "提交button">button</button>
 			<input :class = "btnClass" type = "submit" value = "提交input">
