@@ -1,4 +1,4 @@
-	
+/*组件*/
 // Vue.component('alert', {
 // 	template: '<button @click = "onClick" value = "TEST1">test1</button>',
 // 	methods: {
@@ -127,4 +127,41 @@ new Vue({
 		btnClass: 'btn btn-default' // Useless!!!
 	},
 	methods: { }
+});
+
+/*************************************************************************
+ *
+ */
+Vue.component('balance',{
+ 	template:`
+ 	<div>
+ 	    <show @showBalance = "showBalanceFun"></show>
+ 	    <div v-if = "showBalanceFlag" >余额：$666  {{ residue }}</div>
+ 	</div>
+ 	`,
+    data: function(){
+    	return {
+    		showBalanceFlag: false,
+    		residue: 9999
+    	}
+    },
+    methods:{
+    	showBalanceFun: function(data){
+    		this.showBalanceFlag = true;
+    		console.log('data a:', data.a, '***', 'data b:', data.b);
+    	}
+    } 	
+});
+
+Vue.component('show',{
+    template:'<button @click = "onClick()">显示余额</button>',
+    methods:{
+    	onClick: function(){
+    		this.$emit('showBalance', {a: 1, b: 2});  //触发自定义事件showBalance
+    	}
+    }
+});
+
+new Vue({
+	el:'#app12',
 });
