@@ -201,5 +201,49 @@ new Vue({
 
 /*************************************************************************
  *  组件通信
- * <> <-- -- <>
+ * <aone> --Event.$emit('aoneSaidSomething', this.aSaid)--> <bone>
  */
+
+var Event = new Vue();
+
+Vue.component('aone', {	
+ 	template: `
+    <div>
+ 	    <input type = "text" @keyup = "onChange" v-model = "aSaid"> {{ aSaid }}
+ 	</div>
+ 	`,
+ 	data: function() {
+ 		return {
+ 			aSaid: ''
+ 		}
+ 	},
+ 	methods: {
+ 		onChange: function() {
+ 			Event.$emit('aoneSaidSomething', this.aSaid);
+ 		}
+ 	}
+});
+
+Vue.component('bone', {
+ 	template: `
+ 	<div>
+        b receive aoneSaid:{{ aoneSaid }}
+ 	</div>
+ 	`,
+ 	data: function() {
+ 		return {
+ 			aoneSaid: ''
+ 		}
+ 	},
+ 	mounted: function() {
+ 		var b = this;
+ 		Event.$on('aoneSaidSomething', function(data){
+ 			console.log(data);
+ 			b.aoneSaid = data;
+ 		});
+ 	}
+});
+
+new Vue({
+ 	el: "#app13",	
+});
