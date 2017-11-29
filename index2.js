@@ -1,4 +1,4 @@
-/*组件*/
+/*组件 全局与局部*/
 // Vue.component('alert', {
 // 	template: '<button @click = "onClick" value = "TEST1">test1</button>',
 // 	methods: {
@@ -34,7 +34,7 @@ new Vue({
 });
 
 /*************************************************************************
- *
+ * 配置组件
  */
 // Vue.component('like', {
 // 	template: '#likeComponentTPL',
@@ -89,7 +89,7 @@ new Vue({
 });
 
 /*************************************************************************
- *
+ * 父->子组件通信
  */
 var alertComponent = {
 	template: '<button :class = "btnClass" @click = "onClick" value = "TEST2">test2</button>',
@@ -130,7 +130,7 @@ new Vue({
 });
 
 /*************************************************************************
- *
+ * 子->父组件通信
  */
 Vue.component('balance',{
  	template:`
