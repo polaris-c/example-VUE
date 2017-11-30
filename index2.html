@@ -32,7 +32,6 @@
 	<div id = "app10">
 		<h3>app10</h3>
 		<like></like>
-		<like></like>
 	</div>
 	<hr>
 
@@ -60,7 +59,10 @@
 	<hr>
 
 	<template id = "likeComponentTPL">
+		<div>
 		<button :class = "{like: liked}" @click = "toggleLike()"> Zan! {{ likeCount }}</button>
+		<button :class = "{'btn btn-default': liked}" @click = "toggleLike()"> Zan! {{ likeCount }}</button>	
+	    </div>	
 	</template>
 
     <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>

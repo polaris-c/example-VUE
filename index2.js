@@ -72,7 +72,7 @@ var likeComponent = {
 		return {
 			likeCount: 10,
 			liked: false,
-			//btnClass: 'btn btn-default'
+			btnClass: 'btn btn-default'
 		}
 	},
 	methods: {

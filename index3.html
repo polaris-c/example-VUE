@@ -11,7 +11,12 @@
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 
     <style type="text/css">
-
+        .card {
+            width: 300px;
+            background: #eee;
+            padding: 10px;
+            margin: 5px
+        }
     </style>
 
 </head>
@@ -19,6 +24,57 @@
 <body>
 	<h3>VUE examples  北邮2017</h3>
 	<hr>
+
+    <div id = "app15">
+        <div v-pin = "card1.pinflag" class = "card"> 
+            <button @click = "transform()" :class = "{'btn btn-default': btnFlag }">Transform</button>
+            <button @click = "card1.pinflag = !card1.pinflag" :class = "{'btn btn-default': btnFlag }">Ding</button>
+            A B C D <br>
+        </div>
+
+        <div V-pin = "card2.pinflag" class = "card"> 
+            <a @click = "card2.pinflag = !card2.pinflag" href="#">Ding</a>
+            1 2 3 4
+        </div>
+
+        <div>
+
+        <hr>
+
+        <div id = "app16">
+            
+        </div>
+
+
+            <hr>
+            <hr>
+************<br>
+Abstract<br>
+************<br>
+This paper addresses the problem of generating possible object lo-cations for use in object recognition. <br>
+We introduce Selective Search which combines the strength of both an exhaustive search and seg-mentation. <br>
+Like segmentation, we use the image structure to guide our sampling process. Like exhaustive search, we aim to capture all possible object locations.<br> Instead of a single technique to gen-erate possible object locations, we diversify our search and use a variety of complementary image partitionings to deal with as many image conditions as possible. <br>
+Our Selective Search results in a small set of data-driven, class-independent, high quality locations, yielding 99% recall and a Mean Average Best Overlap of 0.879 at 10,097 locations. <br>
+The reduced number of locations compared to an exhaustive search enables the use of stronger machine learning techniques and stronger appearance models for object recognition. <br>
+In this paper we show that our selective search enables the use of the powerful Bag-of-Words model for recognition. <br>
+The Selective Search software is made publicly available 1.<br>
+Introduction<br>
+For a long time, objects were sought to be delineated before their 
+<hr>
+<hr>
+************<br>
+identification. <br>
+************<br>
+This gave rise to segmentation, which aims for a unique partitioning of the image through a generic algorithm, where there is one part for all object silhouettes in the image. <br>
+Re-search on this topic has yielded tremendous progress over the past years [3, 6, 13, 26]. <br>
+But images are intrinsically hierarchical: In Figure 1a the salad and spoons are inside the salad bowl, which in turn stands on the table. <br>
+Furthermore, depending on the context the term table in this picture can refer to only the wood or include ev-erything on the table. <br>
+Therefore both the nature of images and the different uses of an object category are hierarchical. <br>
+This prohibits the unique partitioning of objects for all but the most specific pur-poses. <br>
+Hence for most tasks multiple scales in a segmentation are a necessity. <br>
+This is most naturally addressed by using a hierarchical partitioning, as done for example by Arbelaez et al. [3].
+        </div>
+    </div>
 
     <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
     <script type="text/javascript" src="index3.js"></script>
