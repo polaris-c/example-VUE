@@ -17,27 +17,81 @@
     <hr>
 
     <div id = "appvr5to7">
+        <!-- <ul class = "nav nav-tabs nav-justified">
+            <li class = "active"><a href="#">Aa-Module</a></li>
+            <li class = ""><a href="#">Bb-Module</a></li>
+            <li class = ""><a href="#">Cc-Module</a></li> 
+            <li class = ""><a href="#">Dd-Module</a></li>            
+        </ul> -->
+
     	<div class = "">
-    		<router-link to = "/"><button :class = 'btnClass'>Home</button></router-link>
+    		<!-- <router-link to = "/"><button :class = 'btnClass'>Home</button></router-link>
 
             <router-link to = "/user"><button :class = 'btnClass'>User</button></router-link>
 
             <router-link to = "/login"><button :class = 'btnClass'>Login</button></router-link>
 
-            <button @click = "loginFun">OK</button>
-            <hr>
+            <button @click = "loginFun">OK</button> -->
+
+            <ul class = "nav nav-tabs nav-justified">
+                <li :class = "{active: activeFlag.activeFlag0}" @click = "clickNav('activeFlag0')">
+                    <router-link to = "/"><a href="#">Aa-Home</a></router-link>
+                </li>
+                <li :class = "{active: activeFlag.activeFlag1}" @click = "clickNav('activeFlag1')">
+                    <router-link to = "/user">Bb-User</router-link>
+                </li>
+                <li :class = "{active: activeFlag.activeFlag2}" @click = "clickNav('activeFlag2')">
+                    <router-link to = "/login">Cc-Login</router-link>
+                </li> 
+                <li class = "">
+                    <router-link to = "/user">Dd-FULL</router-link>
+                </li>          
+            </ul>
         </div>        
 
-    	<div class = "col-md-2">
-            <h3> SIDEBAR </h3>
-    		<router-view name = "sidebar"></router-view>
+        <div class = "row">
+        	<div class = "col-xs-3">
+                <h3> SIDEBAR </h3>
+        		<router-view name = "sidebar"></router-view>
+            </div>
+
+            <div class = "col-xs-9">
+                <h3> CONTENT </h3>
+                <router-view name = "content"></router-view>
+        	</div>
         </div>
 
-        <div class = "col-md-6">
-            <h3> CONTENT </h3>
-            <router-view name = "content"></router-view>
-    	</div>
     </div>
+
+    <template id = "userSidebarTPL">
+        <div>
+            <hr>
+                <ul :class = "navClass">
+                    <li><a href="#">1-ONE</a> </li>
+                    <li><a href="#">2-TWO</a> </li>
+                    <li>
+                        <router-link to = "three" append>3-THREE</router-link>
+                    </li>
+                </ul>
+            
+        </div>
+    </template>
+
+    <template id = "userContentTPL">
+        <div>
+            <hr>
+            <router-link to = 'rain' append>After ---</router-link>
+            <router-view></router-view><br>
+                            
+            ************<br>
+            Abstract<br>
+            ************<br>
+            This paper addresses the problem of generating possible object lo-cations for use in object recognition. <br>
+            We introduce Selective Search which combines the strength of both an exhaustive search and seg-mentation. <br>
+            Like segmentation, we use the image structure to guide our sampling process. <br>
+            Like exhaustive search, we aim to capture all possible object locations.<br> 
+        </div>
+    </template>
 	
 	<script type="text/javascript" src = "../node_modules/vue/dist/vue.js"></script>
 	<script type="text/javascript" src = "../node_modules/vue-router/dist/vue-router.js"></script> 

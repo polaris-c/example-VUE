@@ -1,6 +1,7 @@
 /* 2017.12.4
  * VUE-router
  * 使用多个<router-view>时，用components属性，而不是component。
+ * components中template内的变量定义在与template同级的data:function(){}中。
  * some() 方法用于检测数组中的元素是否满足指定条件（函数提供）； some() 方法会依次执行数组的每个元素。
  * to.matched是数组，其每个元素是路由组件。
  * meta在children子路由里也可以设置。
@@ -13,48 +14,32 @@ var routerMain = [
     		sidebar: {
 	    		template:`
 	    			<div>
-	    				<h2> Home sidebar</h2>
+	    				<hr>
+	    				<h3> Home sidebar</h3>
 	    			</div>
 	    		`
     		},
     	}
     },
+
     {
     	path: '/user',
     	meta: {
     		loginRequired: false
     	},
     	components: {
-    		
     		sidebar: {
-    			template:`
-    				<div>
-    					<ul>
-    						<hr>
-    						<li>111</li>
-    						<li>222</li>
-    						<hr>
-    					</ul>
-    				</div>
-    			`
+    			template: '#userSidebarTPL',
+    			data: function() {
+    				return {
+    					navClass: 'nav nav-pills nav-stacked'
+    				}
+    			} 
     		},
     		content: {
-    			template: `
-    				<div>
-    					<hr>
-    					<router-link to = 'rain' append>After</router-link>
-    					<router-view></router-view><br>
-    					************<br>
-    					Abstract<br>
-    					************<br>
-    					This paper addresses the problem of generating possible object lo-cations for use in object recognition. <br>
-    					We introduce Selective Search which combines the strength of both an exhaustive search and seg-mentation. <br>
-    					Like segmentation, we use the image structure to guide our sampling process. <br>
-    					Like exhaustive search, we aim to capture all possible object locations.<br> 
-    					<hr>
-    				</div>
-    			`
+    			template: '#userContentTPL'
     		}
+
     	},
     	children: [
     		{
@@ -69,9 +54,22 @@ var routerMain = [
     					</div>
     				`
     			}
+    		},
+
+    		{
+    			path: 'three',
+    			component: {
+    				template: `
+    					<div>
+    						This is 3-THREE module<br>
+    						function 3A<br>
+    					</div>
+    				`
+    			}
     		}
     	]
     },
+
     {
     	path: '/login',
     	components: {
@@ -82,7 +80,7 @@ var routerMain = [
     						<hr>
     						<li>AAA</li>
     						<li>BBB</li>
-    						<hr>
+    						
     					</ul>
     				</div>
     			`
@@ -95,12 +93,13 @@ var routerMain = [
     					Welcome!<br>
     					Please Enter~<br>
     					************<br>
-    					<hr>
+    					
     				</div>
     			`
     		}
     	}
     },
+
 ];
 
 var router = new VueRouter({
@@ -111,14 +110,14 @@ var loginFlag = true;
 
 // 路由加载之前
 router.beforeEach(function(to, from, next){
-	var loggedIn = false;
+	var loggedIn = true;
 
-	console.log('beforeEach--to.matched:', to.matched);
-	console.log('beforeEach--from:', from);
+	//console.log('beforeEach--to.matched:', to.matched);
+	//console.log('beforeEach--from:', from);
 
 	if(!loggedIn && to.matched.some(function(item){
-		console.log('beforeEach--item:', item);
-		console.log('beforeEach--item.meta.loginRequired:', item.meta.loginRequired);
+		//console.log('beforeEach--item:', item);
+		//console.log('beforeEach--item.meta.loginRequired:', item.meta.loginRequired);
 		
 		return item.meta.loginRequired;
 	})) {
@@ -147,12 +146,27 @@ new Vue({
 	el: '#appvr5to7',
 	router: router,
 	data: {
-		btnClass: 'btn btn-default'
+		btnClass: 'btn btn-default',
+		activeFlag: {
+			activeFlag0: true,
+			activeFlag1: false,
+			activeFlag2: false
+		}
+		// activeFlag0: false,
+		// activeFlag1: false,
+		// activeFlag2: false
 	},
 	methods: {
 		loginFun: function(){
 			loginFlag = !loginFlag;
 			console.log('loginFlag:',loginFlag);
+		},		
+		clickNav: function(activeFlagNum){
+			//console.log('activeFlagNum:', activeFlagNum);
+			for(flag in this.activeFlag) {
+				this.activeFlag[flag] = false;
+			}
+			this.activeFlag[activeFlagNum]= true;
 		}
 	}
 });
