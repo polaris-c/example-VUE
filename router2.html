@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "zh-cn">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>VUE-router</title>
+
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <h3>VUE examples BUPT 2017</h3>
+
+    <div id = "appvr5to7">
+    	<div>
+    		<router-link to = "/"><button :class = 'btnClass'>Home</button></router-link>
+            <router-link to = "/user"><button :class = 'btnClass'>User</button></router-link>
+            <router-link to = "/login"><button :class = 'btnClass'>Login</button></router-link>
+
+    	</div>
+    	<hr>
+
+        <button @click = "loginFun">OK</button>
+        <hr>
+
+    	<div>
+    		<router-view name = "sidebar"></router-view>
+            <router-view name = "content"></router-view>
+    	</div>
+    </div>
+	
+	<script type="text/javascript" src = "../node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript" src = "../node_modules/vue-router/dist/vue-router.js"></script> 
+    <script type="text/javascript" src = "router2.js"></script>
+</body>
+</html>
