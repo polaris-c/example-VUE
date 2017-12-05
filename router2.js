@@ -30,6 +30,7 @@ var routerMain = [
     			template:`
     				<div>
     					<ul>
+    						<hr>
     						<li>111</li>
     						<li>222</li>
     						<hr>
@@ -40,6 +41,7 @@ var routerMain = [
     		content: {
     			template: `
     				<div>
+    					<hr>
     					<router-link to = 'rain' append>After</router-link>
     					<router-view></router-view><br>
     					************<br>
@@ -49,6 +51,7 @@ var routerMain = [
     					We introduce Selective Search which combines the strength of both an exhaustive search and seg-mentation. <br>
     					Like segmentation, we use the image structure to guide our sampling process. <br>
     					Like exhaustive search, we aim to capture all possible object locations.<br> 
+    					<hr>
     				</div>
     			`
     		}
@@ -76,6 +79,7 @@ var routerMain = [
     			template:`
     				<div>
     					<ul>
+    						<hr>
     						<li>AAA</li>
     						<li>BBB</li>
     						<hr>
@@ -86,10 +90,12 @@ var routerMain = [
     		content: {
     			template: `
     				<div>
+    					<hr>
     					************<br>
     					Welcome!<br>
     					Please Enter~<br>
     					************<br>
+    					<hr>
     				</div>
     			`
     		}

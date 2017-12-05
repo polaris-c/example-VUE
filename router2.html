@@ -9,25 +9,32 @@
     <title>VUE-router</title>
 
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="router2.css">
 </head>
 
 <body>
     <h3>VUE examples BUPT 2017</h3>
+    <hr>
 
     <div id = "appvr5to7">
-    	<div>
+    	<div class = "">
     		<router-link to = "/"><button :class = 'btnClass'>Home</button></router-link>
+
             <router-link to = "/user"><button :class = 'btnClass'>User</button></router-link>
+
             <router-link to = "/login"><button :class = 'btnClass'>Login</button></router-link>
 
-    	</div>
-    	<hr>
+            <button @click = "loginFun">OK</button>
+            <hr>
+        </div>        
 
-        <button @click = "loginFun">OK</button>
-        <hr>
-
-    	<div>
+    	<div class = "col-md-2">
+            <h3> SIDEBAR </h3>
     		<router-view name = "sidebar"></router-view>
+        </div>
+
+        <div class = "col-md-6">
+            <h3> CONTENT </h3>
             <router-view name = "content"></router-view>
     	</div>
     </div>
