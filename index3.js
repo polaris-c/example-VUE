@@ -7,7 +7,7 @@ Vue.directive('pin', function(el, binding) {
 	var position = binding.modifiers;
 	var warning = binding.arg;
 
-	//console.log(binding);
+	console.log(binding);
 	//console.log(el);
 	// console.log('position', position);
 
@@ -32,7 +32,7 @@ Vue.directive('newpin', function(el, binding) {
 	var warning = binding.arg;
 	var originBG = '#abc';
 
-	//console.log(binding);
+	console.log(binding);
 	//console.log(el);
 	//console.log('position', position);
 	console.log('warning:', warning);

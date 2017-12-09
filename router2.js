@@ -59,12 +59,15 @@ var routerMain = [
     		{
     			path: 'three',
     			component: {
-    				template: `
-    					<div>
-    						This is 3-THREE module<br>
-    						function 3A<br>
-    					</div>
-    				`
+                    //content: {
+                        template: `
+                        <div>
+                            This is 3-THREE module<br>
+                            function 3A<br>
+                        </div>
+                        `
+    				
+    				//}
     			}
     		}
     	]
@@ -107,6 +110,7 @@ var router = new VueRouter({
 });
 
 var loginFlag = true;
+
 
 // 路由加载之前
 router.beforeEach(function(to, from, next){
